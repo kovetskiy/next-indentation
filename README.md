@@ -7,7 +7,7 @@ Do you wanna to go deeper?
 - Use command `IndentationGoUp` if you want to up cursor
     for **another** indentation level.
 
-- Use command `IndentationGoUp` if you want to down cursor
+- Use command `IndentationGoDown` if you want to down cursor
     for **another** indentation level.
 
 .vimrc:
