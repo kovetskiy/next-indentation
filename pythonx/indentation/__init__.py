@@ -27,7 +27,7 @@ def get_next_line_level(direction, count):
     while True:
         next_line += direction
 
-        if direction == 1 and next_line > len(_vim.buffer()):
+        if direction == 1 and next_line >= len(_vim.buffer()):
             return None
 
         if direction == -1 and next_line <= 0:
