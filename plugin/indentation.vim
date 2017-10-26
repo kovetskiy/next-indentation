@@ -2,11 +2,19 @@ py import indentation
 
 "
 func! IndentationGoUpPy (count)
-    execute 'py indentation.go("up", "shallow", ' . count . ')'
+    execute 'py indentation.go_next("up", "shallow", ' . count . ')'
 endfunc
 
 func! IndentationGoDownPy (count)
-    execute 'py indentation.go("down", "deeper", ' . count . ')'
+    execute 'py indentation.go_next("down", "deeper", ' . count . ')'
+endfunc
+
+func! IndentationSameUpPy (count)
+    execute 'py indentation.go_same("up", ' . count . ')'
+endfunc
+
+func! IndentationSameDownPy (count)
+    execute 'py indentation.go_same("down", ' . count . ')'
 endfunc
 
 command! -count=1 -nargs=?
@@ -16,6 +24,14 @@ command! -count=1 -nargs=?
 command! -count=1 -nargs=?
             \ IndentationGoDown
             \ call IndentationGoDownPy(expand('<count>'))
+
+command! -count=1 -nargs=?
+            \ IndentationSameUp
+            \ call IndentationSameUpPy(expand('<count>'))
+
+command! -count=1 -nargs=?
+            \ IndentationSameDown
+            \ call IndentationSameDownPy(expand('<count>'))
 
 func! IndentationGo(line_direction, level_direction, count)
     execute 'py indentation.go(' .
